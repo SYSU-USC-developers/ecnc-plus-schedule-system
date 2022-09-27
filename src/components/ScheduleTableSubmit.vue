@@ -19,7 +19,7 @@
                 <tr v-for="period in periodsArray">
                     <td>{{ period }}</td>
                     <td v-for="index of weekdayArray.length-1">
-                        <el-checkbox></el-checkbox>
+                        <el-checkbox class="checkbox" size="large"></el-checkbox>
                     </td>
                 </tr>
             </tbody>
@@ -31,7 +31,7 @@
             </tr>
             <tr>
                 <td class="wishArea" :colspan="weekdayArray.length">
-                    <el-select class="workSelector" v-model="selectValue" placeholder="请选择意向岗位">
+                    <el-select class="workSelector" v-model="selectValue" placeholder="请选择意向岗位" size="large">
                         <el-option
                             v-for="work in workOptions"
                             :key="work.value"
@@ -39,14 +39,14 @@
                             :value="work">
                         </el-option>
                     </el-select>
-                    <el-checkbox v-model="acceptAdjust" label="服从调剂"></el-checkbox>
+                    <el-checkbox v-model="acceptAdjust" label="服从调剂" size="large"></el-checkbox>
                 </td>
             </tr>
             <!-- 按钮 -->
             <tr>
                 <td class="btnArea" :colspan="weekdayArray.length">
                     <el-button type="primary">提交</el-button>
-                    <el-button type="danger">重置</el-button>
+                    <!-- <el-button type="danger">重置</el-button> -->
                 </td>
             </tr>
         </table>
@@ -56,43 +56,46 @@
 <!-- css -->
 <style>
     .tableArea {
+        position: absolute;
         width: 80%;
-        margin: 0 auto;
-        border: 3px solid;
+        /* 居中 */
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        border: 3px solid #409EFF;
         border-radius: 25px;
-        box-shadow: 10px 5px 5px gray;
-        margin-top: 20px;
+        box-shadow: 10px 10px 2px #ECF5FF;
+        margin-top: 20px;      
     }
 
     table {
         width: 95%;
         margin: 10px auto;
-        font-size: 20px;
+        font-size: 25px;
         /* 消除表格之间的缝隙 */
         border-collapse: collapse;
     }
 
-    table td {
+    table {
         line-height: 70px;
     }
 
     .tablePrompt {
         text-align: center;
-        background-color: lightgray;
-        font-size: 25px;
+        /* background-color: lightgray; */
+        font-size: 30px;
         font-weight: 800;
     }
 
     .weekdayPrompt {
-        background-color: rgba(38,137,13,1);
-        border: 1px solid rgba(134,188,37,1);
+        background-color: #ECF5FF;
+        border: 2px solid #409EFF;
         font-weight: normal;
         text-align: center;
-        color: white;
     }
 
     tbody tr td {
-        border: 1px solid rgba(134,188,37,1);
+        border: 2px solid #409EFF;
         text-align: center;
     }
 
@@ -108,6 +111,10 @@
 
     .btnArea {
         text-align: center;
+    }
+
+    .checkbox {
+        zoom: 200%;
     }
 </style>
 
@@ -150,4 +157,11 @@
             label: '后台'
         }
     ])
+
+    // 属性
+    const checkBoxSize = ref()
+    // 函数
+    function changeStatus(e: Event) {
+        console.log(e)
+    }
 </script>
