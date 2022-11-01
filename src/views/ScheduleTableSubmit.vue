@@ -19,7 +19,7 @@
                 <tr v-for="(period, indexOut) in periodsArray">
                     <td>{{ period }}</td>
                     <td v-for="indexIn of weekdayArray.length-1">
-                        <el-checkbox class="checkbox" size="large" @change="checked=>handleFreeTime(indexIn-1, indexOut, checked as boolean)" v-model="refFreeTimeChecked[(weekdayArray.length-1) * indexOut + indexIn - 1]"></el-checkbox>
+                        <el-checkbox class="checkbox" size="large" @change="(checked: any) => handleFreeTime(indexIn-1, indexOut, checked as boolean)" v-model="refFreeTimeChecked[(weekdayArray.length-1) * indexOut + indexIn - 1]"></el-checkbox>
                     </td>
                 </tr>
             </tbody>
@@ -122,7 +122,6 @@
 <script lang="ts" setup>
     import { onBeforeMount, ref } from 'vue';
     import axios from 'axios';
-import { fa, tr } from 'element-plus/es/locale';
 
     // 时间段数据
     let periodsArray = [
@@ -153,7 +152,7 @@ import { fa, tr } from 'element-plus/es/locale';
     // 数据
     let selectValue = ref('')
     let acceptAdjust = ref(false)
-    let netid = "test_id"
+    let netid = "test_id2"
     let workOptions:Array<workOptionsT> = [
         {
             value: 'frontWork',

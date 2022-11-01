@@ -3,15 +3,16 @@
         :default-active="activeIndex"
         class="global-top-navigation"
         mode="horizontal"
+        router
     >
         <!-- 首页 -->
         <el-menu-item index="1">首页</el-menu-item>
         <!-- 班表 -->
-        <!-- <el-sub-menu index="2">
+        <el-sub-menu index="2">
             <template #title>班表</template>
-            <el-menu-item index="2-1">查看班表</el-menu-item>
-            <el-menu-item index="2-2">提交班表</el-menu-item>
-        </el-sub-menu> -->
+            <el-menu-item index="/scheduleTableSubmit">提交（修改）班表</el-menu-item>
+            <el-menu-item index="/schedule">排班</el-menu-item>
+        </el-sub-menu>
         <!-- 请假 -->
         <!-- <el-sub-menu index="3">
             <template #title>请假</template>
